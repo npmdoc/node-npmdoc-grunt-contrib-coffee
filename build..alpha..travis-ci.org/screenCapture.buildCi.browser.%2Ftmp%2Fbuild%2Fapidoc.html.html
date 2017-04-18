@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/gruntjs/grunt-contrib-coffee"
-
-    >grunt-contrib-coffee (v1.0.0)</a>
+    <a href="https://github.com/gruntjs/grunt-contrib-coffee">grunt-contrib-coffee (v1.0.0)</a>
 </h1>
 <h4>Compile CoffeeScript files to JavaScript</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-contrib-coffee">module grunt-contrib-coffee</a><ol>
 
@@ -86,17 +79,17 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">grunt-contrib-coffee = function (grunt) {
-  var path = require(&#x27;path&#x27;);
-  var chalk = require(&#x27;chalk&#x27;);
-  var _ = require(&#x27;lodash&#x27;);
-  var uriPath = require(&#x27;uri-path&#x27;);
+  var path = require('path');
+  var chalk = require('chalk');
+  var _ = require('lodash');
+  var uriPath = require('uri-path');
 
-  grunt.registerMultiTask(&#x27;coffee&#x27;, &#x27;Compile CoffeeScript files into JavaScript&#x27;, function() {
+  grunt.registerMultiTask('coffee', 'Compile CoffeeScript files into JavaScript', function() {
     var options = this.options({
       bare: false,
       join: false,
       sourceMap: false,
-      joinExt: &#x27;.src.coffee&#x27;,
+      joinExt: '.src.coffee',
       separator: grunt.util.linefeed
     });
     var actionCounts = {
@@ -110,7 +103,7 @@
       var validFiles = removeInvalidFiles(f);
 
       if (validFiles.length === 0) {
-        grunt.log.warn(&#x27;Destination &#x27; + chalk.cyan(f.dest) + &#x27; not written because no source files were found.&#x27;);
+        grunt.log.warn('Destination ' + chalk.cyan(f.dest) + ' not written because no source files were found.');
         return;
       }
 
@@ -128,20 +121,20 @@
       }
     });
 
-    grunt.log.ok(actionCounts.createdFile + &#x27; files created.&#x27;);
-    if (actionCounts.createdMap &#x3e; 0) {
-      grunt.log.ok(actionCounts.createdMap + &#x27; source map files created.&#x27;);
+    grunt.log.ok(actionCounts.createdFile + ' files created.');
+    if (actionCounts.createdMap &gt; 0) {
+      grunt.log.ok(actionCounts.createdMap + ' source map files created.');
     }
   });
 
   var isLiterate = function(ext) {
-    return ext === &#x27;.litcoffee&#x27; || ext === &#x27;.md&#x27;;
+    return ext === '.litcoffee' || ext === '.md';
   };
 
   var removeInvalidFiles = function(files) {
     return files.src.filter(function(filepath) {
       if (!grunt.file.exists(filepath)) {
-        grunt.log.warn(&#x27;Source file &#x22;&#x27; + filepath + &#x27;&#x22; not found.&#x27;);
+        grunt.log.warn('Source file "' + filepath + '" not found.');
         return false;
       }
       return true;
@@ -154,12 +147,12 @@
       dest: destination,
       destName: fileName,
       destDir: appendTrailingSlash(path.dirname(destination)),
-      mapFileName: fileName + &#x27;.js.map&#x27;
+      mapFileName: fileName + '.js.map'
     };
   };
 
   var appendTrailingSlash = function(dirname) {
-    if (dirname.length &#x3e; 0 &#x26;&#x26; dirname.slice(-1) !== path.sep) {
+    if (dirname.length &gt; 0 &amp;&amp; dirname.slice(-1) !== path.sep) {
       return dirname + path.sep;
     }
     return dirname;
@@ -172,7 +165,7 @@
 
     var mapOptions, filepath;
 
-    if (files.length &#x3e; 1) {
+    if (files.length &gt; 1) {
       mapOptions = createOptionsForJoin(files, paths, options.separator, options.joinExt);
     } else {
       mapOptions = createOptionsForFile(files[0], paths, options);
@@ -194,8 +187,8 @@
     // get all extensions for input files
     var extensions = _.uniq(files.map(path.extname));
 
-    if (extensions.length &#x3e; 1) {
-      grunt.fail.warn(&#x27;Join and sourceMap options require input files share the same extension (found &#x27; + extensions.join(&#x27;, &#x27;) + &#x27;).&#x27;);
+    if (extensions.length &gt; 1) {
+      grunt.fail.warn('Join and sourceMap options require input files share the same extension (found ' + extensions.join(', ') + ').');
       return false;
     }
     return true;
@@ -209,7 +202,7 @@
     return {
       code: code,
       sourceFiles: [targetFileName],
-      sourceRoot: &#x27;&#x27;
+      sourceRoot: ''
     };
   };
 
@@ -230,3 +223,4 @@
     ]
 </div>
 </div>
+</body></html>

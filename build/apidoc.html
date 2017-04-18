@@ -61,12 +61,166 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-contrib-coffee">module grunt-contrib-coffee</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-contrib-coffee.grunt-contrib-coffee">
+            function <span class="apidocSignatureSpan"></span>grunt-contrib-coffee
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.grunt-contrib-coffee" id="apidoc.module.grunt-contrib-coffee">module grunt-contrib-coffee</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-contrib-coffee.grunt-contrib-coffee" id="apidoc.element.grunt-contrib-coffee.grunt-contrib-coffee">
+        function <span class="apidocSignatureSpan"></span>grunt-contrib-coffee
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-contrib-coffee = function (grunt) {
+  var path = require(&#x27;path&#x27;);
+  var chalk = require(&#x27;chalk&#x27;);
+  var _ = require(&#x27;lodash&#x27;);
+  var uriPath = require(&#x27;uri-path&#x27;);
+
+  grunt.registerMultiTask(&#x27;coffee&#x27;, &#x27;Compile CoffeeScript files into JavaScript&#x27;, function() {
+    var options = this.options({
+      bare: false,
+      join: false,
+      sourceMap: false,
+      joinExt: &#x27;.src.coffee&#x27;,
+      separator: grunt.util.linefeed
+    });
+    var actionCounts = {
+      createdFile: 0,
+      createdMap: 0
+    };
+
+    options.separator = grunt.util.normalizelf(options.separator);
+
+    this.files.forEach(function(f) {
+      var validFiles = removeInvalidFiles(f);
+
+      if (validFiles.length === 0) {
+        grunt.log.warn(&#x27;Destination &#x27; + chalk.cyan(f.dest) + &#x27; not written because no source files were found.&#x27;);
+        return;
+      }
+
+      if (options.sourceMap === true) {
+        var paths = createOutputPaths(f.dest);
+        // add sourceMapDir to options object
+        var fileOptions = _.extend({ sourceMapDir: paths.destDir }, options);
+        var writeResult = writeFileAndMap(paths, compileWithMaps(validFiles, fileOptions, paths), fileOptions);
+        actionCounts.createdFile += writeResult.createdFile;
+        actionCounts.createdMap += writeResult.createdMap;
+      } else if (options.join === true) {
+        actionCounts.createdFile += writeCompiledFile(f.dest, concatInput(validFiles, options));
+      } else {
+        actionCounts.createdFile += writeCompiledFile(f.dest, concatOutput(validFiles, options));
+      }
+    });
+
+    grunt.log.ok(actionCounts.createdFile + &#x27; files created.&#x27;);
+    if (actionCounts.createdMap &#x3e; 0) {
+      grunt.log.ok(actionCounts.createdMap + &#x27; source map files created.&#x27;);
+    }
+  });
+
+  var isLiterate = function(ext) {
+    return ext === &#x27;.litcoffee&#x27; || ext === &#x27;.md&#x27;;
+  };
+
+  var removeInvalidFiles = function(files) {
+    return files.src.filter(function(filepath) {
+      if (!grunt.file.exists(filepath)) {
+        grunt.log.warn(&#x27;Source file &#x22;&#x27; + filepath + &#x27;&#x22; not found.&#x27;);
+        return false;
+      }
+      return true;
+    });
+  };
+
+  var createOutputPaths = function(destination) {
+    var fileName = path.basename(destination, path.extname(destination));
+    return {
+      dest: destination,
+      destName: fileName,
+      destDir: appendTrailingSlash(path.dirname(destination)),
+      mapFileName: fileName + &#x27;.js.map&#x27;
+    };
+  };
+
+  var appendTrailingSlash = function(dirname) {
+    if (dirname.length &#x3e; 0 &#x26;&#x26; dirname.slice(-1) !== path.sep) {
+      return dirname + path.sep;
+    }
+    return dirname;
+  };
+
+  var compileWithMaps = function(files, options, paths) {
+    if (!hasUniformExtensions(files)) {
+      return;
+    }
+
+    var mapOptions, filepath;
+
+    if (files.length &#x3e; 1) {
+      mapOptions = createOptionsForJoin(files, paths, options.separator, options.joinExt);
+    } else {
+      mapOptions = createOptionsForFile(files[0], paths, options);
+      filepath = files[0];
+    }
+
+    options = _.extend({
+      generatedFile: path.basename(paths.dest),
+      sourceRoot: uriPath(mapOptions.sourceRoot),
+      sourceFiles: mapOptions.sourceFiles
+    }, options);
+
+    var output = compileCoffee(mapOptions.code, options, filepath);
+    appendFooter(output, paths, options);
+    return output;
+  };
+
+  var hasUniformExtensions = function(files) {
+    // get all extensions for input files
+    var extensions = _.uniq(files.map(path.extname));
+
+    if (extensions.length &#x3e; 1) {
+      grunt.fail.warn(&#x27;Join and sourceMap options require input files share the same extension (found &#x27; + extensions.join(&#x27;, &#x27;) + &#x27;).&#x27;);
+      return false;
+    }
+    return true;
+  };
+
+  var createOptionsForJoin = function (files, paths, separator, joinExt) {
+    var code = concatFiles(files, separator);
+    var targetFileName = paths.destName + joinExt;
+    grunt.file.write(paths.destDir + targetFileName, code);
+
+    return {
+      code: code,
+      sourceFiles: [targetFileName],
+      sourceRoot: &#x27;&#x27;
+    };
+  };
+
+  var concatFiles = function(files, separator) {
+    return files.map(grunt.file.read).join(separator);
+  };
+
+  var createOptionsFo ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
