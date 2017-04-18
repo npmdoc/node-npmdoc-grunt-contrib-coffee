@@ -1,9 +1,14 @@
-# api documentation for  [grunt-contrib-coffee (v1.0.0)](https://github.com/gruntjs/grunt-contrib-coffee)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-coffee.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-coffee) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee)
+# npmdoc-grunt-contrib-coffee
+
+#### api documentation for  [grunt-contrib-coffee (v1.0.0)](https://github.com/gruntjs/grunt-contrib-coffee)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-coffee.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-coffee) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee)
+
 #### Compile CoffeeScript files to JavaScript
 
-[![NPM](https://nodei.co/npm/grunt-contrib-coffee.png?downloads=true)](https://www.npmjs.com/package/grunt-contrib-coffee)
+[![NPM](https://nodei.co/npm/grunt-contrib-coffee.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-coffee)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-grunt-contrib-coffee_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-contrib-coffee/build/screenCapture.npmPackageListing.svg)
 
@@ -101,28 +106,22 @@
     "main": "tasks/coffee.js",
     "maintainers": [
         {
-            "name": "tkellen",
-            "email": "tyler@sleekcode.net"
+            "name": "tkellen"
         },
         {
-            "name": "cowboy",
-            "email": "cowboy@rj3.net"
+            "name": "cowboy"
         },
         {
-            "name": "shama",
-            "email": "kyle@dontkry.com"
+            "name": "shama"
         },
         {
-            "name": "vladikoff",
-            "email": "vlad@vladikoff.com"
+            "name": "vladikoff"
         },
         {
-            "name": "jmeas",
-            "email": "jellyes2@gmail.com"
+            "name": "jmeas"
         },
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         }
     ],
     "name": "grunt-contrib-coffee",
@@ -130,7 +129,6 @@
     "peerDependencies": {
         "grunt": ">= 0.4.5"
     },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gruntjs/grunt-contrib-coffee.git"
@@ -141,16 +139,6 @@
     "version": "1.0.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-contrib-coffee](#apidoc.module.grunt-contrib-coffee)
-
-
-
-# <a name="apidoc.module.grunt-contrib-coffee"></a>[module grunt-contrib-coffee](#apidoc.module.grunt-contrib-coffee)
 
 
 
