@@ -1,6 +1,6 @@
 # npmdoc-grunt-contrib-coffee
 
-#### api documentation for  [grunt-contrib-coffee (v1.0.0)](https://github.com/gruntjs/grunt-contrib-coffee)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-coffee.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-coffee) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee)
+#### basic api documentation for  [grunt-contrib-coffee (v1.0.0)](https://github.com/gruntjs/grunt-contrib-coffee)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-coffee.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-coffee) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-coffee)
 
 #### Compile CoffeeScript files to JavaScript
 
@@ -136,7 +136,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "bin": {}
 }
 ```
 
